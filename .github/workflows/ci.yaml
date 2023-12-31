@@ -17,4 +17,9 @@ jobs:
       - name: format
         run: yarn prettier -c .
       - name: test
-        run: yarn test
+        run: |
+          yarn && yarn test
+          echo "exit code $?"
+          if [ $? -ne 0 ]; then
+            exit 1
+          fi

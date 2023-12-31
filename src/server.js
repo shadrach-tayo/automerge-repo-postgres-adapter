@@ -1,11 +1,11 @@
 // @ts-check
-import fs from "fs"
 import express from "express"
 import { WebSocketServer } from "ws"
 import { Repo } from "@automerge/automerge-repo"
 import { NodeWSServerAdapter } from "@automerge/automerge-repo-network-websocket"
-import { NodeFSStorageAdapter } from "@automerge/automerge-repo-storage-nodefs"
 import os from "os"
+import { PostgresStorageAdapter } from "./lib/PostgresStorageAdapter.js"
+import prisma from "./client.js"
 
 export class Server {
   /** @type WebSocketServer */
@@ -23,12 +23,6 @@ export class Server {
   #repo
 
   constructor() {
-    const dir =
-      process.env.DATA_DIR !== undefined ? process.env.DATA_DIR : ".amrg"
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir)
-    }
-
     var hostname = os.hostname()
 
     this.#socket = new WebSocketServer({ noServer: true })
@@ -40,12 +34,12 @@ export class Server {
 
     const config = {
       network: [new NodeWSServerAdapter(this.#socket)],
-      storage: new NodeFSStorageAdapter(dir),
+      storage: new PostgresStorageAdapter(prisma),
       /** @ts-ignore @type {(import("@automerge/automerge-repo").PeerId)}  */
       peerId: `storage-server-${hostname}`,
       // Since this is a server, we don't share generously — meaning we only sync documents they already
       // know about and can ask for by ID.
-      sharePolicy: async () => false,
+      sharePolicy: async () => true,
     }
     this.#repo = new Repo(config)
 
