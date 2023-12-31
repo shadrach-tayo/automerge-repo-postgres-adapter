@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "mocha --exit",
+    "test:run": "mocha --exit",
+    "test": "yarn docker:test && docker-compose  --file ./docker-compose.yml down",
+    "docker:test": "CI=true docker-compose --file ./docker-compose.yml --compatibility up --exit-code-from test_server",
     "prettier": "prettier -c ."
   },
   "files": [
