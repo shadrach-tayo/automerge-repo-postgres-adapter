@@ -13,14 +13,6 @@
     isomorphic-ws "^5.0.0"
     ws "^8.7.0"
 
-"@automerge/automerge-repo-storage-nodefs@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-storage-nodefs/-/automerge-repo-storage-nodefs-1.0.13.tgz#642993207fc2e89b19a032f973f901a5eb4fadd7"
-  integrity sha512-Tco72Wm29VmmPXCo5nnyHh2eqtGxl7YZlDBHCJ1iKKy21/J9rUM7pVNw0ozd1rRF6GodcbOo62wcnj6bbDZf1w==
-  dependencies:
-    "@automerge/automerge-repo" "^1.0.13"
-    rimraf "^5.0.1"
-
 "@automerge/automerge-repo@^1.0.13":
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/@automerge/automerge-repo/-/automerge-repo-1.0.13.tgz#91080358e17fb4320d546828d774592f2f116199"
@@ -750,7 +742,7 @@ glob-parent@~5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
-glob@10.3.10, glob@^10.3.7:
+glob@10.3.10:
   version "10.3.10"
   resolved "https://registry.npmjs.org/glob/-/glob-10.3.10.tgz"
   integrity sha512-fa46+tv1Ak0UPK1TOy/pZrIybNNt4HCv7SDzwyfiOZkvZLEbjsZkJBPtDHVshZjbecAoAGSC20MjLDG/qr679g==
@@ -1177,13 +1169,6 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==
-
-rimraf@^5.0.1:
-  version "5.0.5"
-  resolved "https://registry.npmjs.org/rimraf/-/rimraf-5.0.5.tgz"
-  integrity sha512-CqDakW+hMe/Bz202FPEymy68P+G50RfMQK+Qo5YUqc9SPipvbGjCGKd0RSKEelbsfQuw3g5NZDSrlZZAJurH1A==
-  dependencies:
-    glob "^10.3.7"
 
 safe-buffer@5.2.1, safe-buffer@^5.1.0:
   version "5.2.1"
